@@ -1,0 +1,40 @@
+module tb;
+
+timeunit  1ns;
+timeprecision 1ns;
+
+bit reset = 1'b0;
+reg req_0,req_1,req_2,req_3;
+reg ack_0,ack_1,ack_2,ack_3;
+bit data;
+
+
+ ctrl ctrl(
+   .reset(reset),
+
+   .req_0(req_0),
+   .req_1(req_1),
+   .req_2(req_2),
+   .req_3(req_3)
+  );
+
+  initial #1000 $finish;
+
+  initial forever begin
+    $timeformat(-9, 1, "ns", 12);
+
+  /*  always @ (*) begin
+        data = 1'b1;
+    end*/
+
+    #50 {reset} = 1'b1; $display("HELLO");
+
+
+    #50
+
+
+
+    $display ("TESTE PASSED");
+
+    end
+endmodule

@@ -1,0 +1,25 @@
+`ifndef controller
+`define controller
+
+module controller(
+  input req_i,
+  input ack_i1,
+
+  output reg req_i1,
+  output reg ack_i
+  );
+
+  timeunit  1ns;
+  timeprecision 1ns;
+
+  initial forever begin
+
+      if (req_i)      ack_i <= 1;
+      if (ack_i1)      req_i1 <= 0;
+      if (!req_i)      ack_i <= 0;
+
+    end
+
+endmodule
+
+`endif
